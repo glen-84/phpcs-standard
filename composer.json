@@ -1,0 +1,19 @@
+{
+    "name": "glen-84/phpcs-standard",
+    "description": "A PSR-12 compliant coding standard for PHP.",
+    "homepage": "https://github.com/glen-84/phpcs-standard",
+    "authors": [
+        {
+            "name": "Glen Ainscow",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "require-dev": {
+        "vimeo/psalm": "^3.8"
+    },
+    "license": "MIT"
+}

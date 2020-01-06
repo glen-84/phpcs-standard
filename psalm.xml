@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<psalm
+    totallyTyped="false"
+    findUnusedCode="true"
+    resolveFromConfigFile="true"
+    autoloader="vendor/squizlabs/php_codesniffer/autoload.php"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd">
+    <projectFiles>
+        <directory name="Glen84" />
+    </projectFiles>
+    <issueHandlers>
+        <!-- TODO: This should not be necessary. -->
+        <UndefinedConstant errorLevel="suppress" />
+
+        <UnusedClass>
+            <errorLevel type="suppress">
+                <directory name="Glen84/Sniffs" />
+            </errorLevel>
+        </UnusedClass>
+    </issueHandlers>
+</psalm>

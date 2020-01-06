@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ruleset name="Glen84CodingStandard">
+    <!-- ARGUMENTS ============================================================================ -->
+
+    <arg name="cache" />
+    <arg name="extensions" value="php" />
+    <arg name="parallel" value="4" />
+
+    <!-- FOLDERS ============================================================================== -->
+
+    <file>./Glen84</file>
+
+    <!-- CODING STANDARD ====================================================================== -->
+
+    <rule ref="./Glen84" />
+</ruleset>
