@@ -152,6 +152,9 @@
     <!-- Disallows the use of any deprecated functions -->
     <rule ref="Generic.PHP.DeprecatedFunctions" />
 
+    <!-- Ensures the $_REQUEST superglobal is not used -->
+    <rule ref="Generic.PHP.DisallowRequestSuperglobal" />
+
     <!-- Discourage the use of the PHP `goto` language construct -->
     <rule ref="Generic.PHP.DiscourageGoto" />
 
