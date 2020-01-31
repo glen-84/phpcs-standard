@@ -30,6 +30,13 @@
         <type>error</type> <!-- Make this an error instead of a warning -->
     </rule>
 
+    <rule ref="PSR12.ControlStructures.BooleanOperatorPlacement">
+        <properties>
+            <!-- Enforce all boolean operators to be at the start of a line -->
+            <property name="allowOnly" value="first" />
+        </properties>
+    </rule>
+
     <!-- Ensures that there is no superfluous whitespace -->
     <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
         <properties>
