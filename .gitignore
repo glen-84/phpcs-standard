@@ -3,4 +3,5 @@
 # (see http://stackoverflow.com/questions/1753070/git-ignore-files-only-locally)
 ##
 
+/node_modules/
 /vendor/

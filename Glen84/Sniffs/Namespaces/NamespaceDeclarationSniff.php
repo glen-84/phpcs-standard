@@ -25,7 +25,7 @@ class NamespaceDeclarationSniff implements Sniff
     public function process(File $phpcsFile, $stackPtr)
     {
         // Find the position of the first non-whitespace token before the namespace declaration.
-        $firstNonWsPos = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), null, true);
+        $firstNonWsPos = $phpcsFile->findPrevious(T_WHITESPACE, $stackPtr - 1, null, true);
 
         $tokens = $phpcsFile->getTokens();
 
@@ -36,17 +36,17 @@ class NamespaceDeclarationSniff implements Sniff
         }
 
         $error = 'There must be one blank line before the namespace declaration';
-        $fix   = $phpcsFile->addFixableError($error, $stackPtr, 'BlankLineBefore');
+        $fix = $phpcsFile->addFixableError($error, $stackPtr, 'BlankLineBefore');
 
         if ($fix) {
             if ($diff < 2) {
                 // Add extra newlines.
-                for ($i = 0; $i < (2 - $diff); $i++) {
+                for ($i = 0; $i < 2 - $diff; $i++) {
                     $phpcsFile->fixer->addNewlineBefore($stackPtr);
                 }
             } else {
                 // Remove extra newlines.
-                for ($i = ($stackPtr - 1); $i > $firstNonWsPos; $i--) {
+                for ($i = $stackPtr - 1; $i > $firstNonWsPos; $i--) {
                     $phpcsFile->fixer->replaceToken($i, '');
                 }
             }

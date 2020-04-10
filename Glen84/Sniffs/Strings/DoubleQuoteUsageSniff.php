@@ -16,10 +16,7 @@ class DoubleQuoteUsageSniff implements Sniff
 {
     public function register(): array
     {
-        return [
-            T_CONSTANT_ENCAPSED_STRING,
-            T_DOUBLE_QUOTED_STRING
-        ];
+        return [T_CONSTANT_ENCAPSED_STRING, T_DOUBLE_QUOTED_STRING];
     }
 
     public function process(File $phpcsFile, $stackPtr)
@@ -40,9 +37,12 @@ class DoubleQuoteUsageSniff implements Sniff
 
         $lastStringToken = $stackPtr;
 
-        $i = ($stackPtr + 1);
+        $i = $stackPtr + 1;
         if (isset($tokens[$i])) {
-            while ($i < $phpcsFile->numTokens && $tokens[$i]['code'] === $tokens[$stackPtr]['code']) {
+            while (
+                $i < $phpcsFile->numTokens &&
+                $tokens[$i]['code'] === $tokens[$stackPtr]['code']
+            ) {
                 if (isset($tokens[$i]['orig_content'])) {
                     $workingString .= $tokens[$i]['orig_content'];
                 } else {
@@ -58,7 +58,7 @@ class DoubleQuoteUsageSniff implements Sniff
             }
         }
 
-        $skipTo = ($lastStringToken + 1);
+        $skipTo = $lastStringToken + 1;
 
         // Check if it's a double quoted string.
         if ($workingString[0] !== '"' || substr($workingString, -1) !== '"') {
@@ -69,9 +69,13 @@ class DoubleQuoteUsageSniff implements Sniff
         if ($tokens[$stackPtr]['code'] === T_DOUBLE_QUOTED_STRING) {
             $stringTokens = token_get_all('<?php ' . $workingString);
             foreach ($stringTokens as $token) {
-                if (is_array($token) && in_array($token[0], [T_CURLY_OPEN, T_DOLLAR_OPEN_CURLY_BRACES])) {
-                    $error = 'The use of complex-syntax variable interpolation is not allowed; use sprintf() or '
-                           . 'concatenation instead';
+                if (
+                    is_array($token) &&
+                    in_array($token[0], [T_CURLY_OPEN, T_DOLLAR_OPEN_CURLY_BRACES])
+                ) {
+                    $error =
+                        'The use of complex-syntax variable interpolation is not allowed; use sprintf() or ' .
+                        'concatenation instead';
                     $phpcsFile->addError($error, $stackPtr, 'ContainsComplexSyntax');
                 }
             }
@@ -107,8 +111,8 @@ class DoubleQuoteUsageSniff implements Sniff
         }
 
         $error = 'String %s does not require double quotes; use single quotes instead';
-        $data  = [str_replace(["\r", "\n"], ['\r', '\n'], $workingString)];
-        $fix   = $phpcsFile->addFixableError($error, $stackPtr, 'NotRequired', $data);
+        $data = [str_replace(["\r", "\n"], ['\r', '\n'], $workingString)];
+        $fix = $phpcsFile->addFixableError($error, $stackPtr, 'NotRequired', $data);
 
         if ($fix) {
             $phpcsFile->fixer->beginChangeset();

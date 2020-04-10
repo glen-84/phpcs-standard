@@ -18,28 +18,22 @@ class ComparisonOperatorUsageSniff implements Sniff
      * A list of invalid operators with their alternatives.
      */
     private static $invalidOps = [
-        T_IS_EQUAL     => '===',
+        T_IS_EQUAL => '===',
         T_IS_NOT_EQUAL => '!=='
     ];
 
     public function register(): array
     {
-        return [
-            T_IS_EQUAL,
-            T_IS_NOT_EQUAL
-        ];
+        return [T_IS_EQUAL, T_IS_NOT_EQUAL];
     }
 
     public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
-        $token  = $tokens[$stackPtr];
+        $token = $tokens[$stackPtr];
 
         $error = 'Operator %s prohibited; use %s instead';
-        $data  = [
-            $token['content'],
-            self::$invalidOps[$token['code']]
-        ];
+        $data = [$token['content'], self::$invalidOps[$token['code']]];
 
         $phpcsFile->addError($error, $stackPtr, 'NotAllowed', $data);
     }
