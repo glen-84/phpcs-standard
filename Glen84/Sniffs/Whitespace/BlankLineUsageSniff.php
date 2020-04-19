@@ -37,11 +37,6 @@ class BlankLineUsageSniff implements Sniff
             $pos = $phpcsFile->findNext(T_WHITESPACE, $start, null, false, $phpcsFile->eolChar)
         ) {
             // Count the number of EOL sequences directly following the current token.
-            /**
-             * @psalm-suppress PossiblyInvalidOperand
-             * @see https://github.com/squizlabs/PHP_CodeSniffer/pull/2797
-             * @todo
-             */
             $innerStart = $pos + 1;
             $count = 0;
 
@@ -59,11 +54,6 @@ class BlankLineUsageSniff implements Sniff
             }
 
             // T_OPEN_TAG includes an EOL sequence for some reason, so add an extra one.
-            /**
-             * @psalm-suppress PossiblyInvalidOperand
-             * @see https://github.com/squizlabs/PHP_CodeSniffer/pull/2797
-             * @todo
-             */
             if ($tokens[$pos - 1]['code'] === T_OPEN_TAG) {
                 ++$count;
             }
