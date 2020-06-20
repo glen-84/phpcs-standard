@@ -3,6 +3,7 @@
     totallyTyped="false"
     findUnusedCode="true"
     resolveFromConfigFile="true"
+    sealAllMethods="true"
     autoloader="vendor/squizlabs/php_codesniffer/autoload.php"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
