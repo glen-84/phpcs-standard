@@ -15,11 +15,11 @@
         "*.php": "prettier --check"
     },
     "devDependencies": {
-        "@glen-84/prettier-config": "^2.1.0",
-        "@prettier/plugin-php": "^0.14.0",
+        "@glen-84/prettier-config": "^2.1.1",
+        "@prettier/plugin-php": "^0.14.2",
         "husky": "^4.2.5",
-        "lint-staged": "^10.1.3",
-        "prettier": "^2.0.4"
+        "lint-staged": "^10.2.11",
+        "prettier": "^2.0.5"
     },
     "repository": {
         "type": "git",
