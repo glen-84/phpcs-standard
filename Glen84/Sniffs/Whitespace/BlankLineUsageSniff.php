@@ -62,7 +62,7 @@ class BlankLineUsageSniff implements Sniff
                 $phpcsFile->addError(
                     'Expected no more than %d blank %s; %d found',
                     $innerStart - 1,
-                    '',
+                    'LimitExceeded',
                     [$this->maxBlankLines, $this->maxBlankLines === 1 ? 'line' : 'lines', $count]
                 );
             }
