@@ -16,7 +16,7 @@
     },
     "devDependencies": {
         "@glen-84/prettier-config": "^2.1.1",
-        "@prettier/plugin-php": "^0.14.2",
+        "@prettier/plugin-php": "^0.14.3",
         "husky": "^4.2.5",
         "lint-staged": "^10.2.11",
         "prettier": "^2.0.5"
