@@ -64,7 +64,6 @@ class ArrayDeclarationSniff implements Sniff
         for ($i = $arrayStart + 1; $i < $arrayEnd; $i++) {
             // Skip bracketed statements, like function calls.
             if ($tokens[$i]['code'] === T_OPEN_PARENTHESIS) {
-                /** @psalm-suppress LoopInvalidation -- Intentional (skipping). */
                 $i = $tokens[$i]['parenthesis_closer'];
 
                 continue;
@@ -181,7 +180,6 @@ class ArrayDeclarationSniff implements Sniff
         for ($i = $arrayStart + 1; $i < $arrayEnd; $i++) {
             // Skip bracketed statements, like function calls.
             if ($tokens[$i]['code'] === T_OPEN_PARENTHESIS) {
-                /** @psalm-suppress LoopInvalidation -- Intentional (skipping). */
                 $i = $tokens[$i]['parenthesis_closer'];
 
                 continue;
@@ -189,7 +187,6 @@ class ArrayDeclarationSniff implements Sniff
 
             // Skip nested short arrays.
             if ($tokens[$i]['code'] === T_OPEN_SHORT_ARRAY) {
-                /** @psalm-suppress LoopInvalidation -- Intentional (skipping). */
                 $i = $tokens[$i]['bracket_closer'];
 
                 continue;

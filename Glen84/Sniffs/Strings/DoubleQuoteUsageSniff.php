@@ -28,10 +28,6 @@ class DoubleQuoteUsageSniff implements Sniff
         if (isset($tokens[$stackPtr]['orig_content'])) {
             $workingString = $tokens[$stackPtr]['orig_content'];
         } else {
-            /**
-             * @psalm-suppress PossiblyUndefinedArrayOffset
-             * @todo $tokens should have a more specific type.
-             */
             $workingString = $tokens[$stackPtr]['content'];
         }
 
@@ -46,10 +42,6 @@ class DoubleQuoteUsageSniff implements Sniff
                 if (isset($tokens[$i]['orig_content'])) {
                     $workingString .= $tokens[$i]['orig_content'];
                 } else {
-                    /**
-                     * @psalm-suppress PossiblyUndefinedArrayOffset
-                     * @todo $tokens should have a more specific type.
-                     */
                     $workingString .= $tokens[$i]['content'];
                 }
 
