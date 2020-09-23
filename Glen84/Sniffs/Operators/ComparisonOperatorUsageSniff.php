@@ -16,6 +16,8 @@ class ComparisonOperatorUsageSniff implements Sniff
 {
     /**
      * A list of invalid operators with their alternatives.
+     *
+     * @psalm-var array<int, string>
      */
     private static $invalidOps = [
         T_IS_EQUAL => '===',
