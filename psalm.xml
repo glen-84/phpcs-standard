@@ -3,7 +3,6 @@
     totallyTyped="false"
     findUnusedCode="true"
     findUnusedPsalmSuppress="true"
-    resolveFromConfigFile="true"
     sealAllMethods="true"
     strictBinaryOperands="true"
     autoloader="vendor/squizlabs/php_codesniffer/autoload.php"
