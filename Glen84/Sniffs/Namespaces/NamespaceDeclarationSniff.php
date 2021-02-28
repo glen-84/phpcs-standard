@@ -20,6 +20,7 @@ class NamespaceDeclarationSniff implements Sniff
     }
 
     /**
+     * @psalm-suppress MissingParamType -- The parent class cannot specify the type, as it needs to support PHP < 7.
      * @return void
      */
     public function process(File $phpcsFile, $stackPtr)
